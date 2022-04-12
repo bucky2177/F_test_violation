@@ -293,7 +293,7 @@ ui <- fluidPage(
       ),
       sliderInput(
         "nsInput",
-        h4("Stichprobengroesse"),
+        h4("Stichprobengroesse (pro Gruppe)"),
         min = 3,
         max = 15,
         value = 7,
