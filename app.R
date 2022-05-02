@@ -5,9 +5,6 @@
 ###############
 
 
-
-
-
 ######### Ab hier nur noch Berechnungen und Plots #########
 plotPopulation = function(sampleInput,
                           sdInput1,
@@ -186,6 +183,7 @@ plotSimulation = function(sampleInput,
     xmax = 12
     xs = seq(xmin, xmax, length.out = 10000)
     dichteF = df(xs, df1 = dfs_1, df2 = dfs_2)
+    histVal = hist(res[, 1][res[, 1] <= xmax], breaks = 50, plot = FALSE)
     plot(
       c(1, 2) ~ c(1, 1),
       col = "white",
@@ -197,7 +195,6 @@ plotSimulation = function(sampleInput,
       cex.lab = 1.25,
       cex.axis = 1.25
     )
-    histVal = hist(res[, 1][res[, 1] <= xmax], breaks = 50, plot = F)
     polygon(x = c(0,0, histVal$mids, xmax), y = c(0,  histVal$density[1], histVal$density,0), col = "skyblue")
     points(dichteF ~ xs,
            col = "red",
